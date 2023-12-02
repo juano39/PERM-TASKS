@@ -1,28 +1,30 @@
 import express from 'express'
 import morgan from 'morgan'
+import routerTasks from './routers/tasks.routes.js'
 
 
 const app = express()
+
 app.use(morgan('dev'))
 app.use(express.json)
 app.use(express.urlencoded({extended: false}))
 
-app.get('/', (req, res) => {
-    res.json({message: "hola mundo"})
-})
+// app.get('/', (req, res) => {
+//     res.json({message: "hola mundo"})
+// })
 
-app.get('/test', (req , res)=> {
+// app.use(routerTasks)
 
-    throw new Error('My custom error')
+// app.get('/tasks',(req, res) => {
+//     res.send('opteniendo tareas')
 
-    res.send('test')
-})
+// } )
 
-app.use((err, req, res, next) => {
-    res.status(500).json({
-        status: 'error',
-        mesagge: err.message
-    })
-})
+// app.use((err, req, res, next) => {
+//     res.status(500).json({
+//         status: 'error',
+//         mesagge: err.message
+//     })
+// })
 
 export default app

@@ -1,7 +1,10 @@
 import app from './app.js'
 
+app.get("/", (req, res) => {
+    res.json({message: "hola mundo"})
+})
 
-app.listen(3000)
-console.log('Server port', 3000)
-
-console.log('first')
+const port = 8080
+app.listen(port, () => {
+    console.log(`Servidor escuchando en http://localhost:${port}`);
+  });
